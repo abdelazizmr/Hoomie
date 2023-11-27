@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('interests', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
-            $table->string('number', 20)->nullable(false);
-            $table->string('address', 255)->nullable(false);
-            $table->integer('age')->nullable(false);
-            $table->string('gender', 10)->nullable(false);
+            $table->string('hobbies', 255)->nullable(false);
+            $table->boolean('smoking')->nullable(false);
+            $table->boolean('introvert')->nullable(false);
+            $table->boolean('food_separated')->nullable(false);
+            $table->boolean('cleaning')->nullable(false);
+            $table->string('religion')->nullable(false);
+            $table->boolean('wifi')->nullable(false);
+            $table->integer('visiting_family_times')->nullable(false);
             // Foreign key relationship
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -29,6 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('interests');
+
     }
 };
