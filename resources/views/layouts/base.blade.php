@@ -112,7 +112,7 @@
                             <div class="menu-left">
                                 <div class="brand-logo">
                                     <a href="{{route('app.index')}}">
-                                        <img src="{{asset('assets/images/new-logo.png')}}" class="h-logo img-fluid blur-up lazyload"
+                                        <img src="{{asset('assets/images/logo.png')}}" class="h-logo img-fluid blur-up lazyload"
                                             alt="logo">
                                     </a>
                                 </div>
@@ -203,8 +203,8 @@
                         <div class="footer-contact">
                             <div class="brand-logo">
                                 <a href="{{route('app.index')}}" class="footer-logo float-start">
-                                    <img src="{{asset('assets/images/new-logo.png')}}" class="f-logo img-fluid blur-up lazyload"
-                                        alt="logo" style=" margin-top: -30%;">
+                                    <img src="{{asset('assets/images/logo.png')}}" class="f-logo img-fluid blur-up lazyload"
+                                        alt="logo" style=" margin-top: -15%;">
                                 </a>
                             </div>
                             <ul class="contact-lists" style="clear:both;">
