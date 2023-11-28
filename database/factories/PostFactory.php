@@ -17,7 +17,12 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => random_int(1,10), 
+            'description' => $this->faker->paragraph,
+            'budget' => $this->faker->randomFloat(2, 100, 1000),
+            'move_in' => $this->faker->date(),
+            'city_id' => random_int(1,20), 
+            'status_id' => random_int(1,5), 
         ];
     }
 }

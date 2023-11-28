@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('interests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger('client_id');
             $table->string('hobbies', 255)->nullable(false);
             $table->boolean('smoking')->nullable(false);
             $table->boolean('introvert')->nullable(false);
@@ -21,9 +21,9 @@ return new class extends Migration
             $table->boolean('cleaning')->nullable(false);
             $table->string('religion')->nullable(false);
             $table->boolean('wifi')->nullable(false);
-            $table->integer('visiting_family_times')->nullable(false);
+            $table->integer('visiting_family_times');
             // Foreign key relationship
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
         });
     }

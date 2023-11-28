@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Client;
-use Illuminate\Database\Seeder;
+use App\Models\PostStatus;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class ClientSeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Client::factory()->count(10)->create();
+        PostStatus::factory()->count(5)->create();
     }
 }

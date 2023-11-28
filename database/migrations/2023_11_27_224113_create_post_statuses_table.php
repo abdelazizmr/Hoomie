@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts_status', function (Blueprint $table) {
+        Schema::create('post_statuses', function (Blueprint $table) {
             $table->id();
             $table->enum('status_type', ['success', 'pending', 'failure']);
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts_status');
+        Schema::dropIfExists('post_statuses');
     }
 };

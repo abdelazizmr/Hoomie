@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('latitude', 10, 6);
-            $table->double('longitude', 10, 6);
+            $table->double('lat', 10, 6);
+            $table->double('lan', 10, 6);
             $table->string('region')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
