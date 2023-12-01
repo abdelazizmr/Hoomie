@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Client;
+use App\Models\Interest;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class ClientSeeder extends Seeder
+class InterestSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Client::factory()->count(10)->create();
+        Interest::factory()->count(10)->create();
     }
 }
