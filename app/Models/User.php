@@ -21,7 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'gender',
     ];
+
+    public function client()
+    {
+        return $this->hasOne(Client::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,6 +49,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-  
-    
+
+
 }

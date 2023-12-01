@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('number', 20)->nullable(false);
-            $table->string('address', 255)->nullable(false);
-            $table->integer('age')->nullable(false);
-            $table->string('gender', 10)->nullable(false);
+            $table->bigInteger('user_id')->unsigned()->unique();
+            $table->string('address', 255)->nullable();
+            $table->integer('age')->nullable();
             // Foreign key relationship
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

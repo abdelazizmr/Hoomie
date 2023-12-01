@@ -66,7 +66,7 @@
             <div class="box">
                 <form method="POST" action="{{route('login')}}">
                     @csrf
-                    <div class="login-title" style="color: #0274ff;">
+                    <div class="login-title" style="color: #37517e;">
                         <h2>Login</h2>
                     </div>
                     <div class="input">
@@ -86,13 +86,13 @@
                     <a href="javascript:void(0)" class="pass-forgot">Forgot your password?</a>
 
                     <div class="button login" >
-                        <button type="submit" style="background-color: #0274ff; border:#0274ff;">
+                        <button type="submit" >
                             <span>Log In</span>
                             <i class="fa fa-check"></i>
                         </button>
                     </div>
 
-                    <p>Not a member? <a href="{{route('register')}}" style="color:#0274ff;">Sign up now</a></p>
+                    <p>Not a member? <a href="{{route('register')}}" style="color:#37517e;">Sign up now</a></p>
                 </form>
             </div>
         </div>

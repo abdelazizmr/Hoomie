@@ -10,10 +10,9 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = [
-        'number',
+        'user_id',
         'address',
         'age',
-        'gender',
     ];
 
     /**
@@ -22,7 +21,7 @@ class Client extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function interest()

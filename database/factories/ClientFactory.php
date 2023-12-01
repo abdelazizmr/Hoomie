@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,11 +18,9 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => random_int(1,10), // You may adjust this based on your user creation logic
-            'number' => $this->faker->phoneNumber,
+            'user_id' => User::factory(),
             'address' => $this->faker->address,
             'age' => $this->faker->numberBetween(18, 60),
-            'gender' => $this->faker->randomElement(['male', 'female'])
         ];
     }
 }

@@ -28,7 +28,7 @@
         <div class="box">
             <form method="POST" action="{{route('register')}}">
                 @csrf
-                <div class="login-title" style="color: #0274ff;">
+                <div class="login-title" style="color: #37517e;">
                     <h2>Register</h2>
                 </div>
 
@@ -57,6 +57,15 @@
                 </div>
 
                 <div class="input">
+                    <h4>Gender :</h4>
+                    <select id="gender" name="gender" required>
+                        <option value="male" >Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    @error('gender') <span class="text-danger mt-3">{{$message}}</span> @enderror
+                </div>
+
+                <div class="input">
                     <label for="pass">Password</label>
                     <input type="password" id="pass" class="block mt-1 w-full" name="password" required=""
                         autocomplete="new-password">
@@ -73,14 +82,14 @@
                 </div>
 
                 <div class="button login">
-                    <button type="submit" style="background-color: #0274ff; border:#0274ff;">
+                    <button type="submit" >
                         <span>Sign Up</span>
                         <i class="fa fa-check"></i>
                     </button>
                 </div>
             </form>
         </div>
-        <p><a href="{{route('login')}}" style="color: #0274ff;">Already have an account?</a></p>
+        <p><a href="{{route('login')}}" style="color: #37517e;">Already have an account?</a></p>
     </div>
 </div>
 
