@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('number', 20)->nullable(false);
-            $table->string('address', 255)->nullable(false);
-            $table->integer('age')->nullable(false);
-            $table->string('gender', 10)->nullable(false);
+            $table->text('description');
+            $table->decimal('budget', 10, 2);
+            $table->date('move_in')->default(now());
             // Foreign key relationship
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('posts');
     }
 };
