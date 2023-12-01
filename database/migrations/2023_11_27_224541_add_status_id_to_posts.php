@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('status_id')->nullable();
-            $table->foreign('status_id')->references('id')->on('posts_status');
+            $table->foreign('status_id')->references('id')->on('post_statuses');
         });
     }
 
