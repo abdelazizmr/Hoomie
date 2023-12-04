@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->text('description');
-            $table->decimal('budget', 10, 2);
-            $table->date('move_in')->default(now());
+            $table->text('description')->nullable();;
+            $table->decimal('budget', 10, 2)->nullable();;
+            $table->date('move_in')->default(now())->nullable();;
             // Foreign key relationship
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 

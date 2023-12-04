@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Client;
+use App\Models\Post;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     use RegistersUsers;
@@ -28,8 +28,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'gender' => ['required', 'in:female,male'], // Assurez-vous que le genre est soit "female" soit "male"
-            'phone' => ['required', 'string', 'max:20'],
         ]);
     }
 
@@ -39,14 +37,22 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'phone' => $data['phone'],
         ]);
-
-        $client = new Client(['user_id' => $user->id]);
-        $user->client()->save($client);
+        // Create a post for the user
+        $post = new Post([
+            'user_id' => $user->id,
+            // Add other post fields as needed
+        ]);
+        $user->post()->save($post);
 
         return $user;
+
     }
+    protected function registered(Request $request, $user)
+    {
+        // Redirect to the interests page after successful registration
+        return redirect()->route('users.interest');
+    }
+
 }
 

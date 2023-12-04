@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class InterestFactory extends Factory
     public function definition(): array
     {
         return [
-            'client_id' => random_int(1,10),
+            'user_id' => User::factory(),
             'hobbies' => $this->faker->sentence,
             'smoking' => $this->faker->boolean,
             'introvert' => $this->faker->boolean,

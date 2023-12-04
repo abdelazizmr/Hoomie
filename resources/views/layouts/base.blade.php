@@ -53,73 +53,74 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto " href="#hero" style="font-size: 18px">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about" style="font-size: 18px">Blogs</a></li>
-          <li><a class="nav-link scrollto" href="#services" style="font-size: 18px">Who we are</a></li>
-          <li><a class="nav-link   scrollto" href="#portfolio" style="font-size: 18px">Contact Us</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-      <div class="menu-right">
-        <ul>
-            <li class="onhover-dropdown">
-                <div class="cart-media name-usr" style="color: white; margin-left:20px;">
-                   @auth
-                       <span>{{Auth::user()->name}}</span>
-                   @endauth
-                   <i data-feather="user"></i>
-                </div>
-                <div class="onhover-div profile-dropdown">
-                    <ul>
-                        @if (Route::has('login'))
-                            @auth
-                                @if (Auth::user()->utype==='ADM')
+        <nav id="navbar" class="navbar">
+            <ul>
+            <li><a class="nav-link scrollto " href="#hero" style="font-size: 18px">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about" style="font-size: 18px">Blogs</a></li>
+            <li><a class="nav-link scrollto" href="#services" style="font-size: 18px">Who we are</a></li>
+            <li><a class="nav-link   scrollto" href="#portfolio" style="font-size: 18px">Contact Us</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+        <div class="menu-right">
+            <ul>
+                <li class="onhover-dropdown">
+                    <div class="cart-media name-usr" style="color: white; margin-left:20px;">
+                    @auth
+                        <span>{{Auth::user()->name}}</span>
+                    @endauth
+                    <i data-feather="user"></i>
+                    </div>
+                    <div class="onhover-div profile-dropdown">
+                        <ul>
+                            @if (Route::has('login'))
+                                @auth
+                                    @if (Auth::user()->utype==='ADM')
+                                        <li>
+                                            <a href="{{route('admin.index')}}" class="d-block">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('dashboard.profile')}}" class="d-block">My Profile</a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{route('dashboard.profile')}}" class="d-block">My Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('users.index')}}" class="d-block">My Preference</a>
+                                        </li>
+                                    @endif
                                     <li>
-                                        <a href="{{route('admin.index')}}" class="d-block">Dashboard</a>
+                                        <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('formlogout').submit();" class="d-block">Logout</a>
+                                        <form id="formlogout" action="{{route('logout')}}" method="POST">
+                                            @csrf
+                                        </form>
                                     </li>
-                                    <li>
-                                        <a href="{{route('dashboard.profile')}}" class="d-block">My Profile</a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="{{route('dashboard.profile')}}" class="d-block">My Profile</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('user.index')}}" class="d-block">My Account</a>
-                                    </li>
-                                @endif
+                            @else
                                 <li>
-                                    <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('formlogout').submit();" class="d-block">Logout</a>
-                                    <form id="formlogout" action="{{route('logout')}}" method="POST">
-                                        @csrf
-                                    </form>
+                                    <a href="{{route('login')}}" class="d-block">Login</a>
                                 </li>
-                        @else
-                            <li>
-                                <a href="{{route('login')}}" class="d-block">Login</a>
-                            </li>
-                            <li>
-                                <a href="{{route('register')}}" class="d-block">Register</a>
-                            </li>
-                            @endauth
-                        @endif
-                    </ul>
-                </div>
-            </li>
-        </ul>
+                                <li>
+                                    <a href="{{route('register')}}" class="d-block">Register</a>
+                                </li>
+                                @endauth
+                            @endif
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
+
 
     @yield('content')
 
     <div id="qvmodal"></div>
 
-     <!-- ======= Footer ======= -->
+  <!-- ======= Footer ======= -->
   <footer id="footer">
-
     <div class="footer-top">
       <div class="container">
         <div class="row">

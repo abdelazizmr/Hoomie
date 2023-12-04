@@ -14,7 +14,8 @@ class Post extends Model
         'description',
         'budget',
         'status_id',
-        'move_in','city_id'
+        'move_in',
+        'city_id',
     ];
 
     /**

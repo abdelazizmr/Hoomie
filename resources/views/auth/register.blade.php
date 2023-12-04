@@ -41,28 +41,11 @@
                 </div>
 
                 <div class="input">
-                    <label for="phone">Phone</label>
-                    <input type="text" id="phone" class="block mt-1 w-full" type="text" name="phone"
-                        :value="old('phone')" required="" autofocus="" autocomplete="phone">
-                    @error('phone') <span class="text-danger mt-3">{{$message}}</span> @enderror
-
-                </div>
-
-                <div class="input">
                     <label for="emailname">Email Address</label>
                     <input type="email" id="emailname" class="block mt-1 w-full" type="email" name="email"
                         :value="old('email')" required="" autocomplete="username">
                     @error('email') <span class="text-danger mt-3">{{$message}}</span> @enderror
 
-                </div>
-
-                <div class="input">
-                    <h4>Gender :</h4>
-                    <select id="gender" name="gender" required>
-                        <option value="male" >Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    @error('gender') <span class="text-danger mt-3">{{$message}}</span> @enderror
                 </div>
 
                 <div class="input">

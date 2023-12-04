@@ -4,27 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Interest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class InterestController extends Controller
 {
     public function index(){
-        $user=Auth::user();
-        // Récupérer les intérêts de l'utilisateur actuellement authentifié
-        $interests = auth()->user()->interests;
-          // Charger la vue et passer les intérêts comme données
-        return view('users.index' , compact('interests','user'));
+        $interests = Interest::where('user_id', auth()->id())->first();
+        return view('users.interest', compact('interests'));
     }
 
-    public function editInterest()
-    {
-        // Récupérer les intérêts de l'utilisateur actuellement authentifié
-        $interests = Auth::user()->interests;
-
-        // Charger la vue du formulaire de modification
-        return view('users.interestEdit', compact('interests'));
-    }
-    public function updateInterest(Request $request)
+    public function update(Request $request)
     {
         // Validate the form data
         $request->validate([
@@ -44,7 +32,6 @@ class UserController extends Controller
             $request->only(['hobbies', 'smoking', 'introvert', 'food_separated', 'cleaning', 'religion', 'wifi', 'visiting_family_times'])
         );
 
-        return redirect()->route('users.index')->with('success', 'Interests updated successfully');
+        return redirect()->route('app.index')->with('success', 'Interests updated successfully');
     }
-
 }

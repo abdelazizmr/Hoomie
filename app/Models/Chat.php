@@ -20,7 +20,10 @@ class Chat extends Model
     {
         return $this->belongsTo(User::class, 'sender_id');
     }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     /**
      * Get the receiver user associated with the message.
      */

@@ -9,6 +9,7 @@ class Interest extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'hobbies',
         'smoking',
         'introvert',
@@ -22,4 +23,5 @@ class Interest extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }
