@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Models\Post;
+use App\Providers\RouteServiceProvider;
+use App\Models\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+class RegisterController extends Controller
+{
+    use RegistersUsers;
+
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    protected function create(array $data)
+    {
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+        // Create a post for the user
+        $post = new Post([
+            'user_id' => $user->id,
+            // Add other post fields as needed
+        ]);
+        $user->post()->save($post);
+
+        return $user;
+
+    }
+    protected function registered(Request $request, $user)
+    {
+        // Redirect to the interests page after successful registration
+        return redirect()->route('users.interest');
+    }
+
+}
+
