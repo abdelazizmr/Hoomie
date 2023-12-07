@@ -49,8 +49,11 @@
           <li data-filter="*">Men</li>
           <li data-filter="*">Women</li>
           <li data-filter="*">
-            <select style="width:100px" >
-              <option value="city">city</option>
+            <select style="width:150px">
+                <option value="all">All Cities</option>
+                @foreach ($citys as $city)
+                    <option value="{{ $city->name }}">{{ $city->name }}</option>
+                @endforeach
             </select>
           </li>
           <li data-filter="*">Budget:<input style="width:100px" type="number"></li>
