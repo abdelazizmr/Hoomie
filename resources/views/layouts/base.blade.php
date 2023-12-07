@@ -45,10 +45,11 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
         <div class="logo me-auto">
-            <a href="{{route('app.index')}}">
-                <img src="{{asset('assets/images/logo2.jpg')}}" class="h-logo img-fluid blur-up lazyload"
-                    alt="logo" style="width: 150px;">
+            <a href="{{route('app.index')}}" class="logo-link">
+                <img src="{{asset('assets/images/logo2.png')}}" class="h-logo img-fluid blur-up lazyload"
+                    alt="logo" >
             </a>
+
         </div>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -58,14 +59,14 @@
             <li><a class="nav-link scrollto " href="#hero" style="font-size: 18px">Home</a></li>
             <li><a class="nav-link scrollto" href="#about" style="font-size: 18px">Blogs</a></li>
             <li><a class="nav-link scrollto" href="#services" style="font-size: 18px">Who we are</a></li>
-            <li><a class="nav-link   scrollto" href="#portfolio" style="font-size: 18px">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="#contact" style="font-size: 18px">Contact Us</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
         <div class="menu-right">
             <ul>
                 <li class="onhover-dropdown">
-                    <div class="cart-media name-usr" style="color: white; margin-left:20px;">
+                    <div class="cart-media name-usr" style="color: white; margin-top:10px;">
                     @auth
                         <span>{{Auth::user()->name}}</span>
                     @endauth
