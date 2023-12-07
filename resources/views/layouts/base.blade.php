@@ -46,7 +46,7 @@
     <div class="container d-flex align-items-center">
         <div class="logo me-auto">
             <a href="{{route('app.index')}}">
-                <img src="{{asset('assets/images/logo2.jpg')}}" class="h-logo img-fluid blur-up lazyload"
+                <img src="{{asset('assets/images/logo2.png')}}" class="h-logo img-fluid blur-up lazyload"
                     alt="logo" style="width: 150px;">
             </a>
         </div>
