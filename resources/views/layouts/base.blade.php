@@ -65,7 +65,7 @@
         <div class="menu-right">
             <ul>
                 <li class="onhover-dropdown">
-                    <div class="cart-media name-usr" style="color: white; margin-left:20px;">
+                    <div class="cart-media name-usr" style="color: white; margin-top:10px;">
                     @auth
                         <span>{{Auth::user()->name}}</span>
                     @endauth
