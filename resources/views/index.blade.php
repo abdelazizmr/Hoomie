@@ -92,8 +92,8 @@
               <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
                 <div class="member d-flex align-items-start">
                   <div class="member-info">
-                    <a href="#about" class="get-started-btn scrollto">
-                      <h4>Find a place</h4>
+                    <a href="{{route('app.listings')}}" class="get-started-btn scrollto">
+                      <h4 >Find a place</h4>
                     </a>
                     <!-- End Cta Section -->
                     <!-- ======= Portfolio Section ======= -->

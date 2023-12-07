@@ -19,20 +19,20 @@
   <!-- Google Fonts -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
 
-  
+
   <link href="{{ asset('/css/listing.css') }}" rel="stylesheet">
-  
+
 
 </head>
 
 <body>
 
-  
- 
-   
+
+
+
 
     @extends('layouts.base')
-    
+
 
     <!-- ======= hoomies Section ======= -->
     <section id="hoomies" class="hoomies section-bg">
@@ -49,8 +49,11 @@
           <li data-filter="*">Men</li>
           <li data-filter="*">Women</li>
           <li data-filter="*">
-            <select style="width:100px" >
-              <option value="city">city</option>
+            <select style="width:150px">
+                <option value="all">All Cities</option>
+                @foreach ($citys as $city)
+                    <option value="{{ $city->name }}">{{ $city->name }}</option>
+                @endforeach
             </select>
           </li>
           <li data-filter="*">Budget:<input style="width:100px" type="number"></li>
@@ -62,15 +65,21 @@
           @foreach ($posts as $post)
           <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="{{ asset('img/team-1.jpg') }}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{$post->user->image}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>{{ $post->user_id }}</h4>
+                <h4>
+                    @if ($post->user)
+                        {{ $post->user->name }}
+                    @else
+                        User Not Found
+                    @endif
+                </h4>
                 <span class="fonction">{{ $post->description }}</span>
                 <p>{{ $post->move_in }}</p>
                 <span>Room:{{ $post->budget }}</span><span> $ USD/month</span>
 
                 <button class="buttonMessage">Message</button>
-                
+
               </div>
             </div>
           </div>
@@ -86,7 +95,7 @@
                 <span>Room: 333</span><span> $ USD/month</span>
 
                 <button class="buttonMessage">Message</button>
-                
+
               </div>
             </div>
           </div>
@@ -101,7 +110,7 @@
                 <span>Room: 333</span><span> $ USD/month</span>
 
                 <button class="buttonMessage">Message</button>
-                
+
               </div>
             </div>
           </div>
@@ -115,7 +124,7 @@
                 <p>Morroco , Martil</p>
                 <span>Room: 333</span><span> $ USD/month</span>
                 <button class="buttonMessage">Message</button>
-                
+
               </div>
             </div>
           </div> -->
@@ -125,11 +134,11 @@
       </div>
     </section><!-- End hoomies Section -->
 
-   
+
 
   </main><!-- End #main -->
 
- 
+
 
 </body>
 

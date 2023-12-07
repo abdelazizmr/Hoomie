@@ -48,4 +48,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/listings',[ListingsController::class,'index'])->name('app.index');
+Route::get('/listings',[ListingsController::class,'index'])->name('app.listings');
