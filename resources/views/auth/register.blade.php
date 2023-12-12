@@ -1,81 +1,60 @@
-@extends('layouts.base')
+<x-guest-layout>
+    <x-authentication-card>
+        <x-slot name="logo">
+            <x-authentication-card-logo />
+        </x-slot>
 
-@section('content')
-<style>
-    [type="text"]:focus,
-    [type="email"]:focus,
-    [type="url"]:focus,
-    [type="password"]:focus,
-    [type="number"]:focus,
-    [type="date"]:focus,
-    [type="datetime-local"]:focus,
-    [type="month"]:focus,
-    [type="search"]:focus,
-    [type="tel"]:focus,
-    [type="time"]:focus,
-    [type="week"]:focus,
-    [multiple]:focus,
-    textarea:focus,
-    select:focus {
+        <x-validation-errors class="mb-4" />
 
-        box-shadow: none !important;
-        border-color: transparent !important;
-    }
-</style>
-<!-- Sign Up Section Start -->
-<div class="login-section">
-    <div class="materialContainer">
-        <div class="box">
-            <form method="POST" action="{{route('register')}}">
-                @csrf
-                <div class="login-title" style="color: #37517e;">
-                    <h2>Register</h2>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <div>
+                <x-label for="name" value="{{ __('Name') }}" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                <div class="mt-4">
+                    <x-label for="terms">
+                        <div class="flex items-center">
+                            <x-checkbox name="terms" id="terms" required />
+
+                            <div class="ms-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-label>
                 </div>
+            @endif
 
-                <div class="input">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" class="block mt-1 w-full" type="text" name="name"
-                        :value="old('name')" required="" autofocus="" autocomplete="name">
-                    @error('name') <span class="text-danger mt-3">{{$message}}</span> @enderror
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
 
-                </div>
-
-                <div class="input">
-                    <label for="emailname">Email Address</label>
-                    <input type="email" id="emailname" class="block mt-1 w-full" type="email" name="email"
-                        :value="old('email')" required="" autocomplete="username">
-                    @error('email') <span class="text-danger mt-3">{{$message}}</span> @enderror
-
-                </div>
-
-                <div class="input">
-                    <label for="pass">Password</label>
-                    <input type="password" id="pass" class="block mt-1 w-full" name="password" required=""
-                        autocomplete="new-password">
-                    @error('password') <span class="text-danger mt-3">{{$message}}</span> @enderror
-
-                </div>
-
-                <div class="input">
-                    <label for="compass">Confirm Password</label>
-                    <input type="password" id="compass" class="block mt-1 w-full" name="password_confirmation"
-                        required="" autocomplete="new-password">
-                    @error('Confirm Password') <span class="text-danger mt-3">{{$message}}</span> @enderror
-
-                </div>
-
-                <div class="button login">
-                    <button type="submit" >
-                        <span>Sign Up</span>
-                        <i class="fa fa-check"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-        <p><a href="{{route('login')}}" style="color: #37517e;">Already have an account?</a></p>
-    </div>
-</div>
-
-<!-- Sign Up Section End -->
-
-@endsection
+                <x-button class="ms-4">
+                    {{ __('Register') }}
+                </x-button>
+            </div>
+        </form>
+    </x-authentication-card>
+</x-guest-layout>

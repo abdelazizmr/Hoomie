@@ -84,13 +84,16 @@ class FindPlaceController extends Controller
 
         return view('editPlace', compact('place'));
     }
-    
+
     public function destroy($id)
     {
         $place = Place::findOrFail($id);
 
-        // Add additional logic to check if the authenticated user has permission to delete this place
-        // ...
+        //$this->authorize('delete', $place);
+        if (!auth()->user()->can('delete', $place)) {
+            return redirect()->route('app.findplace')->with('error', 'Unauthorized action.');
+        }
+
 
         $place->delete();
 

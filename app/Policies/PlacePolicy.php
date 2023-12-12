@@ -22,4 +22,8 @@ class PlacePolicy
         // You can customize this logic based on your application's requirements
         return $user->id === $place->user_id;
     }
+    public function delete(User $user, Place $place)
+    {
+        return $user->id === $place->user_id;
+    }
 }

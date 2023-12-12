@@ -54,3 +54,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/listings',[ListingsController::class,'index'])->name('app.listings');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+Route::prefix('chatify')->middleware(['web', 'auth'])->group(function () {
+    // Your Chatify routes go here
+    Route::get('/messages', 'ChatifyController@messages')->name('chatify.messages');
+});

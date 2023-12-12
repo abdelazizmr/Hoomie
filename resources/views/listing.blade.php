@@ -78,8 +78,7 @@
                 <p>{{ $post->move_in }}</p>
                 <span>Room:{{ $post->budget }}</span><span> $ USD/month</span>
 
-                <button class="buttonMessage">Message</button>
-
+                <a href="{{ route('chatify.messages') }}" class="buttonMessage">Message</a>
               </div>
             </div>
           </div>

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Providers;
+
 use App\Models\Place;
 use App\Policies\PlacePolicy;
 use Illuminate\Support\Facades\Gate;
-// use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -27,5 +27,6 @@ class AuthServiceProvider extends ServiceProvider
 
         // Map the Place model to the PlacePolicy
         Gate::resource('place', PlacePolicy::class);
+
     }
 }
