@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\FindPlaceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\ProfileController;
@@ -29,7 +30,11 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/interests-edit', [UserController::class, 'editInterest'])->name('interests.edit');
     Route::put('/interests-updated', [UserController::class, 'updateInterest'])->name('interests.updateUser');
-
+    Route::get('/findplace',[FindPlaceController::class,'index'])->name('app.findplace');
+    Route::post('/posts', [FindPlaceController::class, 'store'])->name('posts.store');
+    Route::get('/editPlace/{id}', [FindPlaceController::class, 'edit'])->name('places.edit');
+    Route::delete('/destroyPlace/{id}', [FindPlaceController::class, 'destroy'])->name('places.destroy');
+    Route::put('/places/{id}', [FindPlaceController::class, 'update'])->name('places.update');
 });
 
 

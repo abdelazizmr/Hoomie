@@ -92,7 +92,7 @@
               <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
                 <div class="member d-flex align-items-start">
                   <div class="member-info">
-                    <a href="{{route('app.listings')}}" class="get-started-btn scrollto">
+                    <a href="{{route('app.findplace')}}" class="get-started-btn scrollto">
                       <h4 >Find a place</h4>
                     </a>
                     <!-- End Cta Section -->
@@ -107,7 +107,7 @@
               >
               <div class="member d-flex align-items-start">
                 <div class="member-info">
-                  <a href="#about" class="get-started-btn scrollto">
+                  <a href="{{route('app.listings')}}" class="get-started-btn scrollto">
                     <h4>Find a roomate</h4>
                   </a>
                 </div>
@@ -132,7 +132,7 @@
             >
               <div class="icon-box">
                 <div class="card-img">
-                  <img src="assets/img/casa.jpg" alt="" class="img-fluid" />
+                  <img src="assets/img/casa.jpg" alt="" class="img-fluid"  style="width: 300px"/>
                 </div>
                 <h4><a href="">Casablanca</a></h4>
               </div>
@@ -145,7 +145,7 @@
             >
               <div class="icon-box">
                 <div class="card-img">
-                  <img src="assets/img/tetouan.jpg" alt="" class="img-fluid" />
+                  <img src="assets/img/tetouan.jpg" alt="" class="img-fluid" style="width: 300px" />
                 </div>
                 <h4><a href="">Tetouan</a></h4>
               </div>
@@ -157,7 +157,7 @@
           >
             <div class="icon-box">
               <div class="card-img">
-                <img src="assets/img/kech.jpg" alt="" class="img-fluid" />
+                <img src="assets/img/kech.jpg" alt="" class="img-fluid" style="width: 300px" />
               </div>
               <h4><a href="">Marrakech</a></h4>
             </div>
@@ -170,7 +170,7 @@
           >
             <div class="icon-box">
               <div class="card-img">
-                <img src="assets/img/tanger.jpg" alt="" class="img-fluid" />
+                <img src="assets/img/tanger.jpg" alt="" class="img-fluid" style="width: 300px;height:260px" />
               </div>
               <h4><a href="">Tanger</a></h4>
             </div>
