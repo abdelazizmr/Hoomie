@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
-use App\Models\Post;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use App\Models\Post;
 use Filament\Tables;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Filters\TernaryFilter;
+use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\PostResource\RelationManagers;
 
 class PostResource extends Resource
 {
@@ -23,7 +26,13 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Select::make('status')
+                ->options([
+                'success' => 'success',
+                'pending' => 'pending',
+                'failure' => 'failure',
+                ]),
+         
             ]);
     }
 
@@ -39,10 +48,20 @@ class PostResource extends Resource
             Tables\Columns\TextColumn::make('status.status_type'),
             ])
             ->filters([
-                //
+            //
+            SelectFilter::make('status')
+            ->options([
+                'success' => 'success',
+                'pending' => 'pending',
+                'failure' => 'failure',
+            ]),
+            TernaryFilter::make('verified')
+            ->nullable()
+            ->attribute('status_id')
+
             ])
             ->actions([
-             //   Tables\Actions\EditAction::make(),
+               Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([

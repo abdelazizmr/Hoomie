@@ -18,11 +18,11 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => random_int(1,10), 
-            'description' => $this->faker->paragraph,
+            'description' => substr($this->faker->paragraph,0,20),
             'budget' => $this->faker->randomFloat(2, 100, 1000),
             'move_in' => $this->faker->date(),
             'city_id' => random_int(1,20), 
-            'status_id' => random_int(1,5), 
+            'status_id' => random_int(1,3), 
         ];
     }
 }
