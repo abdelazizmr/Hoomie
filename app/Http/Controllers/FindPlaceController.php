@@ -84,6 +84,7 @@ class FindPlaceController extends Controller
 
         return view('editPlace', compact('place'));
     }
+    
     public function destroy($id)
     {
         $place = Place::findOrFail($id);
