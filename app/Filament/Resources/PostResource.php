@@ -28,9 +28,9 @@ class PostResource extends Resource
             ->schema([
                 Select::make('status')
                 ->options([
-                'success' => 'success',
-                'pending' => 'pending',
-                'failure' => 'failure',
+                '1' => 'success',
+                '2' => 'pending',
+                '3' => 'failure',
                 ]),
          
             ]);
@@ -49,18 +49,17 @@ class PostResource extends Resource
             ])
             ->filters([
             //
-            SelectFilter::make('status')
+            SelectFilter::make('status_id')
             ->options([
-                'success' => 'success',
-                'pending' => 'pending',
-                'failure' => 'failure',
+                '1' => 'success',
+                '2' => 'pending',
+                '3' => 'failure',
             ]),
-            TernaryFilter::make('verified')
-            ->nullable()
-            ->attribute('status_id')
+            
 
             ])
             ->actions([
+               Tables\Actions\ViewAction::make(),
                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
