@@ -5,61 +5,61 @@
     body {
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
-}
+    }
 
-.container {
-    margin-top: 20px;
-}
+    .container {
+        margin-top: 20px;
+    }
 
-.panel-heading {
-    background-color: #428bca;
-    color: #ffffff;
-}
+    .panel-heading {
+        background-color: #428bca;
+        color: #ffffff;
+    }
 
-.panel-body {
-    padding: 20px;
-}
+    .panel-body {
+        padding: 20px;
+    }
 
-.form-group {
-    margin-bottom: 20px;
-}
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-label {
-    font-weight: bold;
-}
+    label {
+        font-weight: bold;
+    }
 
-textarea.form-control {
-    resize: vertical;
-}
+    textarea.form-control {
+        resize: vertical;
+    }
 
-.btn-primary {
-    background-color: #428bca;
-    color: #ffffff;
-}
+    .btn-primary {
+        background-color: #428bca;
+        color: #ffffff;
+    }
 
-.btn-primary:hover {
-    background-color: #3071a9;
-    color: #ffffff;
-}
+    .btn-primary:hover {
+        background-color: #3071a9;
+        color: #ffffff;
+    }
 
-/* Style pour l'image ou la vidéo actuelle */
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
+    /* Style pour l'image ou la vidéo actuelle */
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
 
-.form-group img, .form-group video {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-}
+    .form-group img, .form-group video {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
 
-/* Style pour les champs de fichier */
-input[type="file"] {
-    margin-top: 5px;
-}
+    /* Style pour les champs de fichier */
+    input[type="file"] {
+        margin-top: 5px;
+    }
 
-/* Ajoutez d'autres styles en fonction de vos besoins */
+    /* Ajoutez d'autres styles en fonction de vos besoins */
 
 </style>
 <br><br><br><br><br>
