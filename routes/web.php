@@ -33,9 +33,9 @@ Route::middleware('auth')->group(function(){
 });
 
 
-Route::middleware(['auth','auth.admin'])->group(function(){
-    Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
-});
+// Route::middleware(['auth','auth.admin'])->group(function(){
+//     Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
+// });
 Route::get('/my-profile',[ProfileController::class,'userProfile'])->name('dashboard.profile');
 Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('/security-profile',[ProfileController::class,'profileSecurity'])->name('dashboard.security');

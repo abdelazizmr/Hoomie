@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PostStatus;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -28,7 +29,7 @@ class Post extends Model
 
     public function status()
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(PostStatus::class);
     }
 
     public function city()
