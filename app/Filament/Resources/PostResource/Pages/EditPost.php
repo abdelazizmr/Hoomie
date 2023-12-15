@@ -13,7 +13,15 @@ class EditPost extends EditRecord
     protected function getActions(): array
     {
         return [
+            Actions\EditAction::make(),
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $data['user_id'] = auth()->id();
+
+        return $data;
     }
 }

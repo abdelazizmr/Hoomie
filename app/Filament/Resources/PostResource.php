@@ -26,12 +26,9 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('status')
-                ->options([
-                '1' => 'success',
-                '2' => 'pending',
-                '3' => 'failure',
-                ]),
+          
+            Select::make('status_id')
+            ->relationship('status', 'status_type')
          
             ]);
     }
@@ -59,7 +56,6 @@ class PostResource extends Resource
 
             ])
             ->actions([
-               Tables\Actions\ViewAction::make(),
                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
