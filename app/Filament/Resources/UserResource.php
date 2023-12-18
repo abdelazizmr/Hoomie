@@ -2,16 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use App\Models\User;
 use Filament\Tables;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use Livewire\TemporaryUploadedFile;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
 {
@@ -23,7 +26,22 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-            //
+            
+                TextInput::make('name'),
+                TextInput::make('email'),
+                TextInput::make('phone'),
+                Select::make('gender')->options([
+                    "female" => "female",
+                    "male" => "male",
+                ]),
+                      
+                TextInput::make('address'),
+                TextInput::make('age'),
+                Select::make('privacy')->options([
+                    "private" => "private",
+                    "public" => "public",
+                ]),
+                TextInput::make('utype'),
             
             ]);
     }
@@ -33,8 +51,8 @@ class UserResource extends Resource
         return $table
             ->columns([
                 //
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('email')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('phone'),
             ])
             ->filters([
@@ -42,10 +60,15 @@ class UserResource extends Resource
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+                //FilamentExportBulkAction::make('export'),
+            ])
+            ->headerActions([
+                //FilamentExportHeaderAction::make('export')
             ]);
     }
     

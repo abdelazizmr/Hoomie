@@ -18,10 +18,10 @@ class EditPost extends EditRecord
         ];
     }
 
-    protected function mutateFormDataBeforeFill(array $data): array
-    {
-        $data['user_id'] = auth()->id();
+    // protected function mutateFormDataBeforeFill(array $data): array
+    // {
+    //     $data['user_id'] = auth()->id();
 
-        return $data;
-    }
+    //     return $data;
+    // }
 }

@@ -8,13 +8,17 @@ use Filament\Tables;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Filters\TernaryFilter;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PostResource\RelationManagers;
+
 
 class PostResource extends Resource
 {
@@ -26,10 +30,15 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-          
-            Select::make('status_id')
-            ->relationship('status', 'status_type')
-         
+                Forms\Components\RichEditor::make('description')
+                    ->maxLength(1000)
+                    ->columnSpan('full'),
+                TextInput::make('budget')->numeric(),
+                Select::make('status_id')
+                    ->relationship('status', 'status_type'),
+                DatePicker::make('move_in'),
+                Select::make('city_id')
+                    ->relationship('city', 'name'),
             ]);
     }
 
@@ -37,40 +46,34 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-            //
-            Tables\Columns\TextColumn::make('user.name'),
-            Tables\Columns\TextColumn::make('description'),
-            Tables\Columns\TextColumn::make('budget'),
-            Tables\Columns\TextColumn::make('move_in'),
-            Tables\Columns\TextColumn::make('status.status_type'),
+                //
+                Tables\Columns\TextColumn::make('user.name')->searchable(),
+                Tables\Columns\TextColumn::make('description')->searchable(),
+                Tables\Columns\TextColumn::make('budget')->suffix(' DH'),
+                Tables\Columns\TextColumn::make('status.status_type'),
             ])
             ->filters([
-            //
-            SelectFilter::make('status_id')
-            ->options([
-                '1' => 'success',
-                '2' => 'pending',
-                '3' => 'failure',
-            ]),
-            
+                SelectFilter::make('status_id')
+                    ->relationship('status', 'status_type'),
 
             ])
             ->actions([
-               Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -78,5 +81,5 @@ class PostResource extends Resource
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
-    }    
+    }
 }
