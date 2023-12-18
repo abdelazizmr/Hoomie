@@ -15,12 +15,15 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UserResource\RelationManagers;
+use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    protected static ?string $navigationGroup = 'Manage Users';
 
     public static function form(Form $form): Form
     {
@@ -54,6 +57,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('email')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('phone'),
+              
             ])
             ->filters([
                 //
@@ -68,7 +72,7 @@ class UserResource extends Resource
                 //FilamentExportBulkAction::make('export'),
             ])
             ->headerActions([
-                //FilamentExportHeaderAction::make('export')
+                FilamentExportHeaderAction::make('export')
             ]);
     }
     

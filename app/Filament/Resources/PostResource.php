@@ -18,6 +18,8 @@ use Filament\Tables\Filters\TernaryFilter;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PostResource\RelationManagers;
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
+use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 
 
 class PostResource extends Resource
@@ -25,6 +27,8 @@ class PostResource extends Resource
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    protected static ?string $navigationGroup = 'Manage Posts';
 
     public static function form(Form $form): Form
     {
@@ -64,7 +68,9 @@ class PostResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+                FilamentExportBulkAction::make('export')
             ]);
+          
     }
 
     public static function getRelations(): array
