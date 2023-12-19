@@ -25,6 +25,8 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'Manage Users';
 
+
+
     public static function form(Form $form): Form
     {
         return $form

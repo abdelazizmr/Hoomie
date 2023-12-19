@@ -30,6 +30,7 @@ class PostResource extends Resource
 
     protected static ?string $navigationGroup = 'Manage Posts';
 
+
     public static function form(Form $form): Form
     {
         return $form
