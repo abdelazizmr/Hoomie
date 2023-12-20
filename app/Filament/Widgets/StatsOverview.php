@@ -17,12 +17,21 @@ class StatsOverview extends BaseWidget
       
 
         return [
+            
             Card::make('Users of Hoomie', count($users))
-                ->descriptionIcon('heroicon-s-trending-up')
-                ->color('success'),
+            ->description('increase')
+            ->descriptionIcon('heroicon-s-trending-up')
+            ->chart([7, 2, 10, 3, 15, 4, 17])
+            ->color('success'),
+
             Card::make('Number of active posts', count($posts))
-            ->descriptionIcon('heroicon-s-trending-down')
+            ->description('increase')
+            ->descriptionIcon('heroicon-s-trending-up')
+            ->chart([7, 2, 20, 31, 15, 14, 35])
             ->color('warning'),
+
+       
+
            
         ];
     }
