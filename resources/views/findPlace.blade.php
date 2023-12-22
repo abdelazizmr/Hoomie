@@ -337,21 +337,32 @@
                                 @foreach($places as $place)
                                 <div class="col-sm-4">
                                     <div class="gal-detail thumb">
+                                        <div>
+                                            <!-- Display user image and name -->
+                                            <img src="{{ $place->user->image }}" style="width: 50px; border-radius: 50px; margin-bottom: 15px;" alt="">
+                                            {{ $place->user->name }}
+                                        </div>
                                         <!-- Edit button -->
                                         <div>
-                                            <a href="{{ route('places.edit', ['id' => $place->id]) }}" style="color: #0a0a0a; font-size: 18px; float: right;"><i class="fa fa-edit"></i></a>
-                                            <form id="{{$place->id}}" method="POST" action="{{ route('places.destroy',$place->id)}}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="supprimer btn" onclick="event.preventDefault();
-                                                    if(confirm('Êtes-vous sûr ?'))
-                                                    document.getElementById({{$place->id}}).submit();" type="submit" style="color: #0a0a0a; font-size: 18px; float: right;border:none;">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </form>
+                                            @can('update', $place)
+                                                <a href="{{ route('places.edit', ['id' => $place->id]) }}" style="color: #0a0a0a; font-size: 18px; float: right;">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            @endcan
+                                            @can('delete', $place)
+                                                <form id="{{$place->id}}" method="POST" action="{{ route('places.destroy',$place->id)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="supprimer btn" onclick="event.preventDefault();
+                                                            if(confirm('Êtes-vous sûr ?'))
+                                                            document.getElementById({{$place->id}}).submit();" type="submit" style="color: #0a0a0a; font-size: 18px; float: right;border:none;">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endcan
                                         </div>
-                                        <h4>Description:</h4>
-                                        <p class="text-muted">{{ $place->description }}</p>
+
+                                        <p style="color: #0a0a0a">{{ $place->description }}</p>
 
                                         @if($place->image)
                                             <a href="#" class="image-popup" title="Image">
@@ -363,6 +374,9 @@
                                                 Your browser does not support the video tag.
                                             </video>
                                         @endif
+
+                                        <a href="{{ route('chatify.messages') }}" class="buttonMessage" style="display: inline-block; padding: 10px 10px; background-color: #45b9dc; color: white; text-decoration: none;border-radius: 15px;margin-top: 10px;">Message</a>
+
                                     </div>
                                 </div>
                             @endforeach
