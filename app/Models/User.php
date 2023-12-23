@@ -2,15 +2,21 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Support\Facades\Request;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -29,7 +35,6 @@ class User extends Authenticatable
         'privacy',
         'utype',
     ];
-
     public function interests()
     {
         return $this->hasOne(Interest::class);
@@ -42,8 +47,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+    public function place()
+    {
+        return $this->hasMany(Place::class);
+    }
 
- 
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -52,6 +60,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -65,15 +75,15 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get a single user by ID.
+     * The accessors to append to the model's array form.
      *
-     * @param int $id
-     * @return User|null
+     * @var array<int, string>
      */
+    protected $appends = [
+        'profile_photo_url',
+    ];
     static public function getSingle($id): ?User
     {
         return self::find($id);
     }
-
-
 }

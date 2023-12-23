@@ -24,5 +24,9 @@ class City extends Model
     {
         return $this->hasMany(Post::class);
     }
+    public function place()
+    {
+        return $this->hasMany(Place::class);
+    }
 
 }

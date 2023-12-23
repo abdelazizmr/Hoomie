@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->string('utype')->default('USR');
             $table->string('gender', 10)->nullable();
             $table->string('category', 10)->nullable();
@@ -25,7 +28,6 @@ return new class extends Migration
             $table->string('address', 255)->nullable();
             $table->integer('age')->nullable();
             $table->enum('privacy', ['public', 'private'])->default('public');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

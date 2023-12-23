@@ -28,7 +28,7 @@ class Post extends Model
 
     public function status()
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(PostStatus::class);
     }
 
     public function city()
