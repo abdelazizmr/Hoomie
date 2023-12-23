@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('utype')->default('USR');
             $table->string('gender', 10)->nullable();
+            $table->string('category', 10)->nullable();
             $table->string('phone', 20)->nullable();
             $table->string('image')->nullable();
             $table->string('address', 255)->nullable();

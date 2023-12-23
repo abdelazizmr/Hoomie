@@ -1,177 +1,193 @@
 body {
-    font-family: "Open Sans", sans-serif;
-    color: #444444;
-  }
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
 
-  a {
-    color: #47b2e4;
-    text-decoration: none;
-  }
+a {
+  color: #47b2e4;
+  text-decoration: none;
+}
 
-  a:hover {
-    color: #73c5eb;
-    text-decoration: none;
-  }
+a:hover {
+  color: #73c5eb;
+  text-decoration: none;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Jost", sans-serif;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Jost", sans-serif;
+}
 
-  /* filters */
+/* filters */
 
-  .portfolio #portfolio-flters {
-    list-style: none;
-    margin-bottom: 20px;
-  }
+.portfolio #portfolio-flters {
+  list-style: none;
+  margin-bottom: 20px;
   
-  .portfolio #portfolio-flters li ,.portfolio #portfolio-flters li select ,
-  .portfolio #portfolio-flters li input{
-    cursor: pointer;
-    display: inline-block;
-    margin: 10px 5px;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1;
-    color: #444444;
-    transition: all 0.3s;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .portfolio #portfolio-flters li:hover,
-  .portfolio #portfolio-flters li.filter-active {
-    background: #47b2e4;
-    color: #fff;
-  }
+}
 
- /*end filters */
+.portfolio #portfolio-flters li ,
+.portfolio #portfolio-flters li select ,
+.portfolio #portfolio-flters li input{
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  margin: 5px 10px;
+  color: #444444;
+  transition: all 0.3s;
+  padding: 8px 5px;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+}
 
- 
+
+ .searcheButton {
+  background: #47b2e4;
+  color: #fff;
+  width: 150px;
+  height: 40px;
+  line-height: 1;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 50px;
+  padding: 8px 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+/*end filters */
+
+
 /*  hoomies part*/
-  .hoomies .member {
-    position: relative;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    border-radius: 5px;
-    background: #fff;
-    transition: 0.5s;
-    height: 100%;
-  }
+.hoomies .member {
+  position: relative;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 5px;
+  background: #fff;
+  transition: 0.5s;
+  height: 100%;
+}
 
-  .hoomies .member .pic {
-    overflow: hidden;
-    width: 180px;
-    border-radius: 50%;
-  }
+.hoomies .member .pic {
+  overflow: hidden;
+  width: 180px;
+  border-radius: 50%;
+}
 
-  .hoomies .member .pic img {
-    transition: ease-in-out 0.3s;
-  }
+.hoomies .member .pic img {
+  transition: ease-in-out 0.3s;
+}
 
-  .hoomies .member:hover {
-    transform: translateY(-10px);
-  }
+.hoomies .member:hover {
+  transform: translateY(-10px);
+}
 
-  .hoomies .member .member-info {
-    padding-left: 30px;
-  }
+.hoomies .member .member-info {
+  padding-left: 30px;
+}
 
-  .hoomies .member h4 {
-    font-weight: 700;
-    margin-bottom: 5px;
-    font-size: 20px;
-    color: #37517e;
-  }
+.hoomies .member h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #37517e;
+}
 
-  .hoomies .member .buttonMessage{
-    display: block;
-    background-color:#37517e ;
-    border-radius: 999px;
-    box-shadow: #5E5DF0 0 10px 20px -10px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-    opacity: 1;
-    outline: 0 solid transparent;
-    padding: 8px 18px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: fit-content;
-    word-break: break-word;
-    border: 0;
-    margin-top: 10px ;
+.hoomies .member .buttonMessage{
+  display: block;
+  background-color:#37517e ;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-top: 10px ;
 
-  }
+}
 
-  .hoomies .member span {
-    /* display: block; */
-    font-size: 15px;
-    padding-bottom: 10px;
-    position: relative;
-    font-weight: 500;
-  }
+.hoomies .member span {
+  /* display: block; */
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+}
 
-  .hoomies .member .fonction::after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 50px;
-    height: 1px;
-    background: #cbd6e9;
-    bottom: 0;
-    left: 0;
-  }
+.hoomies .member .fonction::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: #cbd6e9;
+  bottom: 0;
+  left: 0;
+}
 
-  .hoomies .member p {
-    margin: 10px 0 0 0;
-    font-size: 14px;
-  }
+.hoomies .member p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+}
 
-  .hoomies .member .social {
-    margin-top: 12px;
+.hoomies .member .social {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hoomies .member .social a {
+  transition: ease-in-out 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  width: 32px;
+  height: 32px;
+  background: #eff2f8;
+}
+
+.hoomies .member .social a i {
+  color: #37517e;
+  font-size: 16px;
+  margin: 0 2px;
+}
+
+.hoomies .member .social a:hover {
+  background: #47b2e4;
+}
+
+.hoomies .member .social a:hover i {
+  color: #fff;
+}
+
+.hoomies .member .social a+a {
+  margin-left: 8px;
+}
+.paginationListing{
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .hoomies .member .social a {
-    transition: ease-in-out 0.3s;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 50px;
-    width: 32px;
-    height: 32px;
-    background: #eff2f8;
-  }
-
-  .hoomies .member .social a i {
-    color: #37517e;
-    font-size: 16px;
-    margin: 0 2px;
-  }
-
-  .hoomies .member .social a:hover {
-    background: #47b2e4;
-  }
-
-  .hoomies .member .social a:hover i {
-    color: #fff;
-  }
-
-  .hoomies .member .social a+a {
-    margin-left: 8px;
-  }
-
- /* end hoomies part */
+    align-items: center;
+    height: 80px;
+}

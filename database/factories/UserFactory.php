@@ -28,8 +28,8 @@ class UserFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'remember_token' => Str::random(10),
             'gender' => $this->faker->randomElement(['male', 'female']),
-            'privacy' => $this->faker->randomElement(['public', 'private'])
-        ];
+            'privacy' => $this->faker->randomElement(['public', 'private']),
+            'category' => $this->faker->randomElement(['student','employee'])];
     }
 
     /**
