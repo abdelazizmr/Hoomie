@@ -50,7 +50,7 @@ class ListingsController extends Controller
         if (!empty($budgetMax)) {
             $query->where('posts.budget', '<=', $budgetMax);
         }
-        $posts = $query->select('posts.*')->get();
+        $posts = $query->select('posts.*')->paginate(10);
        
        
 
