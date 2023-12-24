@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Arsha Bootstrap Template - Index</title>
+    <title>Hoomie</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -68,7 +68,7 @@
                   name="city"
                   type="text"
                   class="form-control"
-                  placeholder="City"
+                  placeholder="Enter city name .."
                   aria-label="City or Zip Code"
                   aria-describedby="button-addon2"
                 />

@@ -22,6 +22,16 @@
 
   <link href="{{ asset('/css/listing.css') }}" rel="stylesheet">
 
+  <style>
+    input,select,button{
+      border: none !important;
+      padding: 10px !important;
+      border-radius: 0px !important;
+      border-radius: 10px !important;
+      border : 1px solid #59b3e4 !important;
+    }
+  </style>
+
  
 
 
@@ -130,11 +140,21 @@
                     
                 
                 <p class="fonction">{{ $post->description }}</p>
-                  <p><strong>{{ \Carbon\Carbon::parse($post->move_in)->format('F j, Y') }}</strong></p>
-                  <span><strong>Budget : {{ $post->budget }}  DH/Month</strong></span>
+                  <p class="mt-3">
+                    <strong>Budget : {{ $post->budget }}  DH/Month</strong>
+                  </p>
+                  <p>
+                    <strong>Move in :
+                      {{ \Carbon\Carbon::parse($post->move_in)->format('F j, Y') }}
+                    </strong>
+                  </p>
+                  
+                  <p>
+                    <strong>City : {{ $post->city->name }}</strong>
+                  </p>
              
 
-                <a href="{{ route('chatify.messages') }}" class="buttonMessage">Message</a>
+                <a href="{{ route('chatify.messages') }}" class="buttonMessage mt-3">Message</a>
               </div>
             </div>
           </div>
