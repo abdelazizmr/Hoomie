@@ -37,7 +37,7 @@ class User extends Authenticatable
     ];
     public function interests()
     {
-        return $this->hasOne(Interest::class);
+        return $this->hasOne(Interest::class, 'user_id', 'id');
     }
     public function chat()
     {

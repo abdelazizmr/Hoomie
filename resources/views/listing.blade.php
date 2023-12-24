@@ -22,6 +22,8 @@
 
   <link href="{{ asset('/css/listing.css') }}" rel="stylesheet">
 
+ 
+
 
 </head>
 
@@ -109,16 +111,28 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="{{$post->user->image}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>
+                <div class="d-flex justify-content-between">
+                  <h4>
                     @if ($post->user)
                         {{ $post->user->name }}
-                    @else
-                        User Not Found
                     @endif
-                </h4>
-                <span class="fonction">{{ $post->description }}</span>
-                <p>{{ $post->move_in }}</p>
-                <span>Room:{{ $post->budget }}</span><span> $ USD/month</span>
+                  </h4>
+
+                  <h6 class="text-danger">
+                      @if (Auth::user())
+                          {{ $post->matchingPercentage }}
+                      @endif
+                  </h6>
+                </div>
+                
+                    
+                 
+                    
+                
+                <p class="fonction">{{ $post->description }}</p>
+                  <p><strong>{{ \Carbon\Carbon::parse($post->move_in)->format('F j, Y') }}</strong></p>
+                  <span><strong>Budget : {{ $post->budget }}  DH/Month</strong></span>
+             
 
                 <a href="{{ route('chatify.messages') }}" class="buttonMessage">Message</a>
               </div>
@@ -131,7 +145,7 @@
        
       
       </div>
-    <div class="paginationListing"> {{ $posts->links() }}</div>
+    <div class="paginationListing mt-5"> {{ $posts->links() }}</div>
 
     </section><!-- End hoomies Section -->
 
