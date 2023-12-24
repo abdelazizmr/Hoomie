@@ -59,19 +59,24 @@
               Match, Chat, Share :<br />
               Find Your Ideal Roommate.
             </h1>
-
+            <form action="{{route('form')}}" method="post" id="cityFormfirst">
+              @csrf
+              
+           
             <div class="input-group mb-3">
                 <input
+                  name="city"
                   type="text"
                   class="form-control"
-                  placeholder="City or Zip Code"
+                  placeholder="City"
                   aria-label="City or Zip Code"
                   aria-describedby="button-addon2"
                 />
-                <button class="btn btn-light" type="button" id="button-addon2">
+                <button class="btn btn-light" type="submit" id="button-addon2">
                   <img src="assets/img/arrow.svg" alt="Arrow" />
                 </button>
               </div>
+            </form>
             </div>
             <div
               class="col-lg-6 order-1 order-lg-2 hero-img"
@@ -120,6 +125,11 @@
 
       <!-- ======= Services Section ======= -->
       <section id="services" class="services section-bg">
+        <form action="{{route('form')}}" method="post" id="cityForm">
+          @csrf
+          <input id="cityNameInput" type="hidden" name="city" value="">
+        </form>
+
         <div class="container" data-aos="fade-up">
           <div class="section-title">
             <h2>View Rooms in Popular Cities in Morocco</h2>
@@ -132,9 +142,9 @@
             >
               <div class="icon-box">
                 <div class="card-img">
-                  <img src="assets/img/casa.jpg" alt="" class="img-fluid"  style="width: 300px"/>
+                  <img data-city="Casablanca" src="assets/img/casa.jpg" alt="" class="img-fluid cityImage"  style="height:250px;width:230px"/>
                 </div>
-                <h4><a href="">Casablanca</a></h4>
+                <h4 data-city="Casablanca" class="cityImage" >  Casablanca</h4>
               </div>
             </div>
 
@@ -145,9 +155,9 @@
             >
               <div class="icon-box">
                 <div class="card-img">
-                  <img src="assets/img/tetouan.jpg" alt="" class="img-fluid" style="width: 300px" />
+                  <img data-city="Tétouan" src="assets/img/tetouan.jpg" alt="" class="img-fluid  cityImage" style="height:250px;width:230px" />
                 </div>
-                <h4><a href="">Tetouan</a></h4>
+                <h4 data-city="Casablanca" class="cityImage" >Tétouan</h4>
               </div>
             </div>
             <div
@@ -157,9 +167,9 @@
           >
             <div class="icon-box">
               <div class="card-img">
-                <img src="assets/img/kech.jpg" alt="" class="img-fluid" style="width: 300px" />
+                <img data-city="Marrakech" src="assets/img/kech.jpg" alt="" class="img-fluid cityImage" style="height:250px;width:230px" />
               </div>
-              <h4><a href="">Marrakech</a></h4>
+              <h4 data-city="Casablanca" class="cityImage" >Marrakech</h4>
             </div>
           </div>
 
@@ -170,9 +180,9 @@
           >
             <div class="icon-box">
               <div class="card-img">
-                <img src="assets/img/tanger.jpg" alt="" class="img-fluid" style="width: 300px;height:260px" />
+                <img data-city="Tangier" src="assets/img/tanger.jpg" alt="" class="img-fluid cityImage" style="height:250px;width:230px" />
               </div>
-              <h4><a href="">Tanger</a></h4>
+              <h4 data-city="Casablanca" class="cityImage" >Tanger</h4>
             </div>
           </div>
         </div>
@@ -338,6 +348,30 @@
 
  <!-- Template Main JS File -->
  <script src="assets/js/main.js"></script>
+ <script>
+  
+    // document.getElementById('submitFormLink0').addEventListener('click', function() {
+    // document.getElementById('myForm0').submit()});
+    // ocument.getElementById('submitFormLink1').addEventListener('click', function() {
+    // document.getElementById('myForm1').submit()});
+    // ocument.getElementById('submitFormLink2').addEventListener('click', function() {
+    // document.getElementById('myForm2').submit()});
+    // ocument.getElementById('submitFormLink3').addEventListener('click', function() {
+    // document.getElementById('myForm3').submit()});
+    
+    document.querySelectorAll('.cityImage').forEach(function(image) {
+    image.addEventListener('click', function() {
+        var cityName = image.getAttribute('data-city');
+        
+        // Set the city name in the hidden input field
+        document.getElementById('cityNameInput').value = cityName;
+        
+        // Submit the form
+        document.getElementById('cityForm').submit();
+      });
+});
+
+  </script>
 
  </body>
 </html>
