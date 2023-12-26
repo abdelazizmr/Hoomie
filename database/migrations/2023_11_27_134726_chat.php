@@ -19,8 +19,10 @@ return new class extends Migration
             $table->timestamp('timestamp')->default(now());
 
             // Foreign key relationships
-            $table->foreign('sender_id')->references('id')->on('users');
-            $table->foreign('receiver_id')->references('id')->on('users');
+            $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade')
+            ->onUpdate('cascade');;
+            $table->foreign('receiver_id')->references('id')->on('users')->onDelete('cascade')
+                ->onUpdate('cascade');;
 
             $table->timestamps(); // Created_at and updated_at columns
         });

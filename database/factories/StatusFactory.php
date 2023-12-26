@@ -17,7 +17,7 @@ class StatusFactory extends Factory
     public function definition(): array
     {
         return [
-            'status_type' => $this->faker->randomElement(['success', 'pending', 'failure']),
+            // 'status_type' => $this->faker->randomElement(['success', 'pending', 'failure']),
         ];
     }
 }

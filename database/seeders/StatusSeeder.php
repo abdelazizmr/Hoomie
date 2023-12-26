@@ -13,6 +13,13 @@ class StatusSeeder extends Seeder
      */
     public function run(): void
     {
-        PostStatus::factory()->count(5)->create();
+        $statuses = [
+            ["status_type" => "success"],
+            ["status_type" => "pending"],
+            ["status_type" => "failure"]
+        ];
+        foreach($statuses as $status){
+            PostStatus::create($status);
+        }
     }
 }

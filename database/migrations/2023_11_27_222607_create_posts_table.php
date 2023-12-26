@@ -18,7 +18,8 @@ return new class extends Migration
             $table->decimal('budget', 10, 2)->nullable();;
             $table->date('move_in')->default(now())->nullable();;
             // Foreign key relationship
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
+            ->onUpdate('cascade');;
             $table->timestamps();
         });
     }
