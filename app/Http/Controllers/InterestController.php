@@ -29,8 +29,12 @@ class InterestController extends Controller
         'visiting_family_times' => 'required|string',
         'category' =>'required',
         'age' => 'required',
-        'move_in' => 'required'
+        'move_in' => 'required',
+        'city' => 'required',
         ]);
+
+        $data = $request->all();
+   
 
         // Update or create the user's interests
         Interest::updateOrCreate(
@@ -43,14 +47,16 @@ class InterestController extends Controller
         $user->update([
             'category' => $request->input('category'),
             'gender' => $request->input('gender'),
+            'age' => $request->input('age'),
         ]);
 
         
         auth()->user()->post()->update([
-            'city_id' => $request->input('city_id'),
+            'city_id' => $request->input('city'),
             'move_in' => $request->input('move_in'),
             'budget' => $request->input('budget'),
-            'description' => $request->input('bio'), 
+            'description' => $request->input('bio'),
+            'status_id' => 2 // default is pending 
         ]);
 
 
