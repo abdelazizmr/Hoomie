@@ -29,7 +29,7 @@
             </ul>
         </div>
         <div class="col-md-6">
-            <!--<strong>Information</strong><br>
+            <strong> Your Infos</strong><br>
             <div class="table-responsive">
             <table class="table table-user-information">
                 <tbody>
@@ -37,98 +37,96 @@
                         <td>
                             <strong>
                                 <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                Username
+                                City
                             </strong>
                         </td>
                         <td class="text-primary">
-                            {{$user->name}}
+                            @if ($interests->user->post && $interests->user->post->isNotEmpty())
+                                @foreach ($interests->user->post as $p)
+                                    {{ $p->city->name }}
+                                @endforeach
+                            @else
+                                No posts available
+                            @endif
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <strong>
-                                <span class="glyphicon glyphicon-user  text-primary"></span>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                Gender
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{ $interests->user->gender }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                Job
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{ $interests->user->category }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                Budget
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+
+                            @if ($interests->user->post)
+                            @foreach ($interests->user->post as $p)
+                                {{ $p->budget }}
+                            @endforeach
+                        @else
+                            No posts available
+                        @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
                                 Age
                             </strong>
                         </td>
                         <td class="text-primary">
-                            {{$user->age}}
+                            {{ $interests->user->age }}
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <strong>
-                                <span class="glyphicon glyphicon-user  text-primary"></span>
-                                NumberPhone
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                Bio
                             </strong>
                         </td>
                         <td class="text-primary">
-                            {{$user->phone}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>
-                                <span class="glyphicon glyphicon-user  text-primary"></span>
-                                Address
-                            </strong>
-                        </td>
-                        <td class="text-primary">
-                            {{$user->address}}
+                            @if ($interests->user->post)
+                            @foreach ($interests->user->post as $p)
+                                {{ $p->description }}
+                            @endforeach
+                        @else
+                            No posts available
+                        @endif
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>
-                            <strong>
-                                <span class="glyphicon glyphicon-eye-open text-primary"></span>
-                                Role
-                            </strong>
-                        </td>
-                        <td class="text-primary">
-                            {{$user->utype}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>
-                                <span class="glyphicon glyphicon-envelope text-primary"></span>
-                                Email
-                            </strong>
-                        </td>
-                        <td class="text-primary">
-                            {{$user->email}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>
-                                <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                created
-                            </strong>
-                        </td>
-                        <td class="text-primary">
-                            {{$user->created_at}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>
-                                <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                Modified
-                            </strong>
-                        </td>
-                        <td class="text-primary">
-                            {{$user->updated_at}}
-                        </td>
-                    </tr>
                 </tbody>
                 </table>
-            </div>-->
-            <strong>Preferences</strong><br>
+            </div>
+            
             <div class="table-responsive">
             <table class="table table-user-information">
                 <tbody>
+                    <strong>Your Interests</strong><br>
                     <tr>
                         <td>
                             <strong>

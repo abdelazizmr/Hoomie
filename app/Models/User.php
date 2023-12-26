@@ -36,7 +36,9 @@ class User extends Authenticatable
         'age',
         'privacy',
         'utype',
+        'category'
     ];
+
     public function interests()
     {
         return $this->hasOne(Interest::class, 'user_id', 'id');

@@ -32,7 +32,7 @@
     }
   </style>
 
- 
+
 
 
 </head>
@@ -50,10 +50,10 @@
       <div class="container" data-aos="fade-up">
         <form method="post" action="{{route('form')}}">
           @csrf
-        
+
           <section id="portfolio" class="portfolio">
           <ul id="portfolio-flters" class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
-            
+
             <li data-filter="*">
               <select style="width:150px" name="category">
                 <option value="">All Categorys</option>
@@ -73,7 +73,7 @@
             <li data-filter="*">
               <select style="width:150px" name="gender">
                 <option value="">All Genders</option>
-                @if (isset($gender) && $gender != null && $gender=="male") 
+                @if (isset($gender) && $gender != null && $gender=="male")
                   <option value="male" selected>Men</option>
                   <option value="female" >Women</option>
                 @elseif (isset($gender) && $gender != null && $gender=="female")
@@ -85,10 +85,10 @@
                 @endif
               </select>
             </li>
-            
+
             <li data-filter="*">
               <select style="width:150px" name="city">
-                
+
                   <option value="">All Cities</option>
                   @foreach ($citys as $city)
                     @if (isset($cityName) && $cityName != null && $cityName==$city->name )
@@ -105,13 +105,13 @@
             <li data-filter="*">
               <input type="text" @if ((isset($budgetMax) && $budgetMax != null)) value="{{$budgetMax}}" @endif  id="numericInput"  style="width: 120px" name="budgetMax" step="10" min="1" placeholder="Max">
             </li>
-          
+
             <li data-filter="*" ><button type="submit" class="searcheButton">Search</button></li>
           </ul>
           </section>
         </form>
-        
-          {{-- @if (isset($budgetMin) && $budgetMin != null) 
+
+          {{-- @if (isset($budgetMin) && $budgetMin != null)
             <h2>{{$budgetMin}}</h2>
             @endif --}}
 
@@ -134,11 +134,11 @@
                       @endif
                   </h6>
                 </div>
-                
-                    
-                 
-                    
-                
+
+
+
+
+
                 <p class="fonction">{{ $post->description }}</p>
                   <p class="mt-3">
                     <strong>Budget : {{ $post->budget }}  DH/Month</strong>
@@ -148,11 +148,11 @@
                       {{ \Carbon\Carbon::parse($post->move_in)->format('F j, Y') }}
                     </strong>
                   </p>
-                  
+
                   <p>
                     <strong>City : {{ $post->city->name }}</strong>
                   </p>
-             
+
 
                 <a href="{{ route('chatify.messages') }}" class="buttonMessage mt-3">Message</a>
               </div>
@@ -160,10 +160,10 @@
           </div>
           @endforeach
 
-          
+
         </div>
-       
-      
+
+
       </div>
     <div class="paginationListing mt-5"> {{ $posts->links() }}</div>
 

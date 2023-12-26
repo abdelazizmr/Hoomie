@@ -11,6 +11,65 @@
             @csrf
             @method('PUT')
             <div class="mb-3">
+                <label for="city" class="form-label">City : </label>
+                <select class="form-select" id="city" name="city">
+                    <option value="">Choose your city</option>
+                    @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+                @error('city') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender : </label>
+                <select class="form-select" id="gender" name="gender">
+                     <option value="">Choose your gender</option>
+                     <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                @error('gender') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="category" class="form-label">Category : </label>
+                <select class="form-select" id="category" name="category">
+                     <option value="">Choose your category</option>
+                     <option value="employee">employee</option>
+                    <option value="student">student</option>
+                </select>
+                @error('category') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+
+            <div class="mb-3">
+                <label for="budget" class="form-label">Budget : </label>
+                <input type="text" class="form-control" id="budget" name="budget" value="{{ old('budget', $interests->budget ?? '') }}">
+                @error('budget') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="age" class="form-label">Age : </label>
+                <input type="text" class="form-control" id="age" name="age">
+                @error('age') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="move_in" class="form-label">Move in date : </label>
+                <input type="date" class="form-control" id="move_in" name="move_in">
+                @error('move_in') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="bio" class="form-label">Bio : </label>
+                <textarea class="form-control" id="bio" name="bio" placeholder="Tell us about yourself ...">{{ old('bio', $interests->bio ?? '') }}</textarea>
+                @error('bio') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <h2 class="my-2"> Your Interests</h2>
+
+            <div class="mb-3">
                 <label for="hobbies" class="form-label">Hobbies:</label>
                 <input type="text" class="form-control" id="hobbies" name="hobbies" value="{{ old('hobbies', $interests->hobbies ?? '') }}">
                 @error('hobbies') <span class="text-danger">{{ $message }}</span> @enderror

@@ -16,7 +16,6 @@ class InterestController extends Controller
 
     public function update(Request $request)
     {
-      
         // Validate the form data
         $request->validate([
         'hobbies' => 'required|string',
@@ -34,7 +33,7 @@ class InterestController extends Controller
         ]);
 
         $data = $request->all();
-   
+
 
         // Update or create the user's interests
         Interest::updateOrCreate(
@@ -50,17 +49,14 @@ class InterestController extends Controller
             'age' => $request->input('age'),
         ]);
 
-        
+
         auth()->user()->post()->update([
             'city_id' => $request->input('city'),
             'move_in' => $request->input('move_in'),
             'budget' => $request->input('budget'),
             'description' => $request->input('bio'),
-            'status_id' => 2 // default is pending 
+            'status_id' => 2 // default is pending
         ]);
-
-
-
 
         return redirect()->route('app.index')->with('success', 'Interests updated successfully');
     }

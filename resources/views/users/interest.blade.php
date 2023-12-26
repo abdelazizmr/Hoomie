@@ -11,7 +11,7 @@
             @csrf
             @method('PUT')
 
-                <div class="mb-3">
+    <div class="mb-3">
         <label for="city" class="form-label">City : </label>
         <select class="form-select" id="city" name="city">
             <option value="">Choose your city</option>
@@ -48,7 +48,7 @@
         <input type="text" class="form-control" id="budget" name="budget" value="{{ old('budget', $interests->budget ?? '') }}">
         @error('budget') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
-    
+
     <div class="mb-3">
         <label for="age" class="form-label">Age : </label>
         <input type="text" class="form-control" id="age" name="age">
@@ -67,7 +67,7 @@
         @error('bio') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
 
-    
+
 
     <h2 class="my-2"> Your Interests</h2>
 
