@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Providers;
-
-use App\Listeners\SetDefaultImage;
+use App\Listeners\SetDefaultImageListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -20,7 +19,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-            SetDefaultImage::class, // Ajoutez votre gestionnaire ici
+            SetDefaultImageListener::class, // Ajoutez votre gestionnaire ici
         ],
     ];
 

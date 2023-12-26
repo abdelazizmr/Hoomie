@@ -135,10 +135,6 @@
                   </h6>
                 </div>
 
-
-
-
-
                 <p class="fonction">{{ $post->description }}</p>
                   <p class="mt-3">
                     <strong>Budget : {{ $post->budget }}  DH/Month</strong>

@@ -4,8 +4,9 @@ namespace App\Listeners;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Auth\Events\Registered;
+use App\Events\SetDefaultImage;
 
-class SetDefaultImage
+class SetDefaultImageListener
 {
     /**
      * Create the event listener.
@@ -24,10 +25,11 @@ class SetDefaultImage
         $user = $event->user;
 
         // Vérifiez si l'image de l'utilisateur est vide
-        if (empty($user->image)) {
+        if (empty($event->user->image)) {
             // Définir l'image par défaut
-            $user->image = 'users/user.png'; // Remplacez cela par le chemin de votre image par défaut
+            $user->image = ($event->user->gender === 'male') ? 'users/man.jpg' : 'users/women.jpg';
             $user->save();
         }
     }
+
 }
