@@ -19,7 +19,7 @@
 <div class="panel-body inf-content">
     <div class="row">
         <div class="col-md-4">
-            <img alt="" style="width:300px; height:400px;" title="" class="img-circle img-thumbnail isTooltip" src="{{$user->image}}" data-original-title="Usuario">
+            <img alt="" style="width:300px; height:300px;" title="" class="img-circle img-thumbnail isTooltip" src="{{$user->image}}" data-original-title="Usuario">
             <ul title="Ratings" class="list-inline ratings text-center">
                 <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
@@ -122,7 +122,7 @@
                 </tbody>
                 </table>
             </div>
-            
+
             <div class="table-responsive">
             <table class="table table-user-information">
                 <tbody>

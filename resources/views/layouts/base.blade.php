@@ -76,21 +76,13 @@
                         <ul>
                             @if (Route::has('login'))
                                 @auth
-                                    @if (Auth::user()->utype==='ADM')
-                                        <li>
-                                            <a href="{{route('admin.index')}}" class="d-block">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('dashboard.profile')}}" class="d-block">My Profile</a>
-                                        </li>
-                                    @else
                                         <li>
                                             <a href="{{route('dashboard.profile')}}" class="d-block">My Profile</a>
                                         </li>
                                         <li>
                                             <a href="{{route('users.index')}}" class="d-block">My Preference</a>
                                         </li>
-                                    @endif
+
                                     <li>
                                         <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('formlogout').submit();" class="d-block">Logout</a>
                                         <form id="formlogout" action="{{route('logout')}}" method="POST">
