@@ -56,10 +56,10 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-            <li><a class="nav-link scrollto " href="#hero" style="font-size: 18px">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about" style="font-size: 18px">Blogs</a></li>
-            <li><a class="nav-link scrollto" href="#services" style="font-size: 18px">Who we are</a></li>
-            <li><a class="nav-link scrollto" href="#contact" style="font-size: 18px">Contact Us</a></li>
+            <li><a class="nav-link scrollto " href="/listings" style="font-size: 18px">Listings</a></li>
+            <li><a class="nav-link scrollto" href="/findplace" style="font-size: 18px">Places</a></li>
+            <li><a class="nav-link scrollto" href="/chatify" style="font-size: 18px">Messages</a></li>
+            <li><a class="nav-link scrollto" href="/#contact" style="font-size: 18px">Contact Us</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
