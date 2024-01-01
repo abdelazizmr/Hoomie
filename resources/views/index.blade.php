@@ -61,9 +61,9 @@
             </h1>
             <form action="{{route('form')}}" method="post" id="cityFormfirst">
               @csrf
-              
-           
-            <div class="input-group mb-3">
+
+
+              <div class="input-group mb-3"  >
                 <input
                   name="city"
                   type="text"
@@ -71,9 +71,13 @@
                   placeholder="Enter city name .."
                   aria-label="City or Zip Code"
                   aria-describedby="button-addon2"
+                  style="height: 4em; "
                 />
-                <button class="btn btn-light" type="submit" id="button-addon2">
-                  <img src="assets/img/arrow.svg" alt="Arrow" />
+                <button class="btn btn-light" type="submit" id="button-addon2"
+                style="height: 4em; "
+                >
+                  <!-- <img src="assets/img/arrow.svg" alt="Arrow" /> -->
+                  <i class="fa-solid fa-arrow-right"></i>
                 </button>
               </div>
             </form>
@@ -95,13 +99,11 @@
           <div class="container" data-aos="fade-up">
             <div class="row">
               <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="member d-flex align-items-start">
-                  <div class="member-info">
+                <div class="member d-flex align-items-start"  style="background-image: url('{{ asset('assets/img/roomtwo.jpg') }}'); background-size: cover; border-top-left-radius: 80px 80px; border-bottom-right-radius: 80px 80px;" >
+                  <div  class="member-info text-center w-100">
                     <a href="{{route('app.findplace')}}" class="get-started-btn scrollto">
-                      <h4 >Find a place</h4>
+        <h4 style="color:white;  font-size: 1.5em;">Find a place</h4>
                     </a>
-                    <!-- End Cta Section -->
-                    <!-- ======= Portfolio Section ======= -->
                   </div>
                 </div>
               </div>
@@ -110,10 +112,10 @@
                 data-aos="zoom-in"
                 data-aos-delay="200"
               >
-              <div class="member d-flex align-items-start">
-                <div class="member-info">
+              <div class="member d-flex align-items-start" style="background-image: url('{{ asset('assets/img/roomate.jpg') }}'); background-size: cover; border-top-right-radius: 80px 80px; border-bottom-left-radius: 80px 80px;">
+                <div class="member-info text-center w-100">
                   <a href="{{route('app.listings')}}" class="get-started-btn scrollto">
-                    <h4>Find a roomate</h4>
+                    <h4 style="color:white; font-size: 1.5em;">Find a roomate</h4>
                   </a>
                 </div>
               </div>
@@ -129,63 +131,35 @@
           @csrf
           <input id="cityNameInput" type="hidden" name="city" value="">
         </form>
-
         <div class="container" data-aos="fade-up">
           <div class="section-title">
             <h2>View Rooms in Popular Cities in Morocco</h2>
           </div>
-          <div class="row">
-            <div
-              class="col-xl-3 col-md-6 d-flex align-items-stretch"
-              data-aos="zoom-in"
-              data-aos-delay="100"
-            >
-              <div class="icon-box">
-                <div class="card-img">
-                  <img data-city="Casablanca" src="assets/img/casa.jpg" alt="" class="img-fluid cityImage"  style="height:250px;width:230px"/>
-                </div>
-                <h4 data-city="Casablanca" class="cityImage" >  Casablanca</h4>
-              </div>
-            </div>
+<!-- slidecity-->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="max-width: 50%; margin: auto;">
+  <div class="carousel-inner">
+    <div class="carousel-item active" >
+      <img data-city="Casablanca" class="d-block w-100" src="assets/img/casa.jpg" alt="First slide">
+      <h4 style="text-align:center;" data-city="Casablanca" class="cityImage" >Casablanca</h4>
+    </div>
+    <div class="carousel-item">
+      <img data-city="Tétouan" class="d-block w-100" src="assets/img/tetouan.jpg" alt="Second slide">
+      <h4 style="text-align:center;" data-city="Tétouan" class="cityImage" >Tétouan</h4>
+    </div>
+    <div class="carousel-item">
+      <img data-city="Marrakech" class="d-block w-100" src="assets/img/kech.jpg" alt="Third slide">
+      <h4 style="text-align:center;" data-city="Marrakech" class="cityImage" >Marrakech</h4>
 
-            <div
-              class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <div class="icon-box">
-                <div class="card-img">
-                  <img data-city="Tétouan" src="assets/img/tetouan.jpg" alt="" class="img-fluid  cityImage" style="height:250px;width:230px" />
-                </div>
-                <h4 data-city="Casablanca" class="cityImage" >Tétouan</h4>
-              </div>
-            </div>
-            <div
-            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
-            data-aos="zoom-in"
-            data-aos-delay="300"
-          >
-            <div class="icon-box">
-              <div class="card-img">
-                <img data-city="Marrakech" src="assets/img/kech.jpg" alt="" class="img-fluid cityImage" style="height:250px;width:230px" />
-              </div>
-              <h4 data-city="Casablanca" class="cityImage" >Marrakech</h4>
-            </div>
-          </div>
+    </div>
+    <div class="carousel-item">
+      <img data-city="Tangier" class="d-block w-100" src="assets/img/tanger.jpg" alt="fourth slide">
+      <h4 style="text-align:center;" data-city="Tangier" class="cityImage" >Tangier</h4>
 
-          <div
-            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-          >
-            <div class="icon-box">
-              <div class="card-img">
-                <img data-city="Tangier" src="assets/img/tanger.jpg" alt="" class="img-fluid cityImage" style="height:250px;width:230px" />
-              </div>
-              <h4 data-city="Casablanca" class="cityImage" >Tanger</h4>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
+</div>
+
+<!-- slidecity -->
       </div>
     </section>
   <!-- End Services Section -->
@@ -209,11 +183,14 @@
                       share your interests and lifestyle effortlessly. Simplify
                       your search and embark on a harmonious living experience
                       today.
+                      Our project uses technology and advanced algorithms to simplify roommate matching by considering lifestyle factors.
                     </p>
+
                     <ul>
-                      <li><i class="ri-check-double-line"></i> point 1</li>
-                      <li><i class="ri-check-double-line"></i> point 1</li>
-                      <li><i class="ri-check-double-line"></i> point 1</li>
+                        <p>Our major goals are :</p>
+                      <li><i class="ri-check-double-line"></i> Unlock the Ideal Living Situation</li>
+                      <li><i class="ri-check-double-line"></i> Effortlessly Discover Compatible Roommates</li>
+                      <li><i class="ri-check-double-line"></i> Simplify Your Search and Start Living Harmoniously</li>
                     </ul>
                   </div>
                 </div>
@@ -236,7 +213,7 @@
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Contact</h2>
+          <h2>Contact Us</h2>
           <p>
             Get in Touch <br />Have a question, suggestion, or just want to
             say hello? We'd love to hear from you.
@@ -349,7 +326,7 @@
  <!-- Template Main JS File -->
  <script src="assets/js/main.js"></script>
  <script>
-  
+
     // document.getElementById('submitFormLink0').addEventListener('click', function() {
     // document.getElementById('myForm0').submit()});
     // ocument.getElementById('submitFormLink1').addEventListener('click', function() {
@@ -358,14 +335,14 @@
     // document.getElementById('myForm2').submit()});
     // ocument.getElementById('submitFormLink3').addEventListener('click', function() {
     // document.getElementById('myForm3').submit()});
-    
+
     document.querySelectorAll('.cityImage').forEach(function(image) {
     image.addEventListener('click', function() {
         var cityName = image.getAttribute('data-city');
-        
+
         // Set the city name in the hidden input field
         document.getElementById('cityNameInput').value = cityName;
-        
+
         // Submit the form
         document.getElementById('cityForm').submit();
       });
