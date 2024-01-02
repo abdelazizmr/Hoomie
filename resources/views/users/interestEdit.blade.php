@@ -1,16 +1,27 @@
 @extends('layouts.base')
 @section('content')
-<br>
-<br>
-<br>
-<br>
-    <div class="container">
-        <h2>Update Your Interests</h2>
+<style>
+    body {
+ background-image: url('{{ asset('assets/img/interests.jpg') }}');
 
+}
+</style>
+<br>
+<br>
+<br>
+<br>
+<div class="container px-5 my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-0 rounded-3 shadow-lg">
+        <div class="card-body p-4">
+
+        <h2>Update Your Interests</h2>
+<br>
         <form method="post" action="{{ route('interests.updateUser') }}">
             @csrf
             @method('PUT')
-            <div class="mb-3">
+            <div class="mb-3" >
                 <label for="city" class="form-label">City : </label>
                 <select class="form-select" id="city" name="city">
                     <option value="">Choose your city</option>
@@ -148,9 +159,13 @@
             </div>
 
             <!-- Ajoutez d'autres champs d'intérêt de la même manière -->
-
-            <button type="submit" class="btn btn-primary">Save</button>
+            <div class="d-grid">
+            <button type="submit" class="btn btn-primary" style="background-color:#37517e">Save</button>
+            </div>
         </form>
     </div>
+    </div></div></div></div></div>
+
+
 @endsection
 

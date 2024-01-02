@@ -181,8 +181,8 @@
                 @error('visiting_family_times') <span class="text-danger">{{ $message }}</span> @enderror
 
             </div>
-            <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
-                 <button type="submit" class="btn btn-primary">Save</button>
+            <div class="thanks-message text-center" id="text-message"> 
+                 <button type="submit" class="btn btn-primary" style="background-color:#37517e">Save</button>
                  <h3>Thank you for your feedback!</h3> <span>Thanks for your valuable information. It helps us to find you a compatible roommate!</span>
 
                 </div>
@@ -193,7 +193,7 @@
     </div>
 
 
-
+<br>
                 <div style="overflow:auto;" id="nextprevious">
                     <div style="float:right;">
                       <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button>
