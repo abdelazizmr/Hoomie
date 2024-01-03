@@ -6,6 +6,7 @@
     body{
         margin-top:20px;
         background:#f5f5f5;
+        font-family: Arial, Helvetica, sans-serif
     }
     /* ===========
     Profile
@@ -278,7 +279,7 @@
 <br>
 <br>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
+<div class="container mb-5">
     <div class="row">
         <div class="col-lg-3 col-md-4">
             <div class="text-center card-box">
@@ -287,9 +288,8 @@
                         <img src="{{$user->image}}" class="img-circle img-thumbnail" alt="profile-image">
                     </div>
 
-                    <div class="">
-                        <h4 class="m-b-5">{{ strtoupper($user->name) }}</h4>
-                        <p class="text-muted"><span>@</span>{{$user->name}}</p>
+                    <div class="my-3">
+                        <h3 class="text-muted"><span>@</span>{{$user->name}}</h3>
                     </div>
 
                     <div class="text-left m-t-40">
@@ -336,17 +336,20 @@
                             <div class="row">
                                 @foreach($places as $place)
                                 <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <div>
+                                    <div class="gal-detail thumb ">
+
+                                        <div class="d-flex justify-content-between">
+                                            <div>
                                             <!-- Display user image and name -->
                                             <img src="{{ $place->user->image }}" style="width: 50px; border-radius: 50px; margin-bottom: 15px;" alt="">
-                                            {{ $place->user->name }}
+                                            <span class="h5">{{ $place->user->name }}</span>
+                                            
                                         </div>
-                                        <!-- Edit button -->
-                                        <div>
+                                       
+                                        <div class="d-flex gap-1 justify-content-center align-items-center">
                                             @can('update', $place)
-                                                <a href="{{ route('places.edit', ['id' => $place->id]) }}" style="color: #0a0a0a; font-size: 18px; float: right;">
-                                                    <i class="fa fa-edit"></i>
+                                                <a href="{{ route('places.edit', ['id' => $place->id]) }}">
+                                                    <i class="fa fa-edit text-success" style="font-size: 18px"></i>
                                                 </a>
                                             @endcan
                                             @can('delete', $place)
@@ -355,12 +358,14 @@
                                                     @method('DELETE')
                                                     <button class="supprimer btn" onclick="event.preventDefault();
                                                             if(confirm('Êtes-vous sûr ?'))
-                                                            document.getElementById({{$place->id}}).submit();" type="submit" style="color: #0a0a0a; font-size: 18px; float: right;border:none;">
-                                                        <i class="fa fa-trash"></i>
+                                                            document.getElementById({{$place->id}}).submit();" type="submit" >
+                                                        <i class="fa fa-trash text-danger" style="font-size: 18px"></i>
                                                     </button>
                                                 </form>
                                             @endcan
                                         </div>
+                                        </div>
+                                        
 
                                         <p style="color: #0a0a0a">{{ $place->description }}</p>
 
@@ -375,7 +380,10 @@
                                             </video>
                                         @endif
 
-                                        <a href="{{ route('chatify.messages') }}" class="buttonMessage" style="display: inline-block; padding: 10px 10px; background-color: #45b9dc; color: white; text-decoration: none;border-radius: 15px;margin-top: 10px;">Message</a>
+                                        <div class="d-flex justify-content-center">
+                                              <a href="{{ route('chatify.messages') }}" class="buttonMessage  my-3 btn btn-primary" >Message</a>
+                                        </div>
+                                      
 
                                     </div>
                                 </div>

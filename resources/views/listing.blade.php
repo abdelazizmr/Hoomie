@@ -116,23 +116,36 @@
             @endif --}}
 
         <div class="row">
+          @if(count($posts) == 0)
+            <h3 class="text-danger text-center my-5">No Results Found 🤕.</h3>
+          @else
           @foreach ($posts as $post)
           <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="{{$post->user->image}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between gap-5">
                   <h4>
                     @if ($post->user)
                         {{ $post->user->name }}
                     @endif
                   </h4>
 
-                  <h6 class="text-danger">
-                      @if (Auth::user())
-                          {{ $post->matchingPercentage }}
-                      @endif
-                  </h6>
+                  <div>
+                    @if (Auth::user())
+                        @php
+                            $matchingPercentage = $post->matchingPercentage; // Assuming $post->matchingPercentage is the value you want to check
+                            $class = ($matchingPercentage >= 70 ) ? 'text-success' : (($matchingPercentage > 50) ? 'text-warning' : 'text-danger');
+                        @endphp
+
+                        <h4 class="{{ $class }}">
+                            {{ $matchingPercentage }} %
+                        </h4>
+                    @endif
+                </div>
+
+                  
+                 
                 </div>
 
                 <p class="fonction">{{ $post->description }}</p>
@@ -155,6 +168,7 @@
             </div>
           </div>
           @endforeach
+          @endif
 
 
         </div>

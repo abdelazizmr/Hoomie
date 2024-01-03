@@ -15,7 +15,11 @@ class ListingsController extends Controller
     public function index(){
         // $posts = Post::all();
 
-        $posts = Post::paginate(10);
+        $posts = Post::where('status_id',
+            1
+        )->latest()->paginate(10);
+
+
         $citys = City::all();
         $authUser = Auth::user();
 
@@ -28,7 +32,7 @@ class ListingsController extends Controller
                 $user_id = auth()->user()->id;
                 $matchingPercentage = $this->calculateMatchingPercentage($user_id, $post->user->id);
                 if($matchingPercentage){
-                    $post->matchingPercentage = strval($matchingPercentage) . "%";
+                    $post->matchingPercentage = $matchingPercentage;
                 }
                 
             }
