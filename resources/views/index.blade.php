@@ -126,42 +126,72 @@
       <!-- End Team Section -->
 
       <!-- ======= Services Section ======= -->
+           <!-- ======= Services Section ======= -->
       <section id="services" class="services section-bg">
         <form action="{{route('form')}}" method="post" id="cityForm">
           @csrf
           <input id="cityNameInput" type="hidden" name="city" value="">
         </form>
+
         <div class="container" data-aos="fade-up">
           <div class="section-title">
             <h2>View Rooms in Popular Cities in Morocco</h2>
           </div>
-<!-- slidecity-->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="max-width: 50%; margin: auto;">
-  <div class="carousel-inner">
-    <div class="carousel-item active" >
-      <img data-city="Casablanca" class="d-block w-100" src="assets/img/casa.jpg" alt="First slide">
-      <h4 style="text-align:center;" data-city="Casablanca" class="cityImage" >Casablanca</h4>
-    </div>
-    <div class="carousel-item">
-      <img data-city="Tétouan" class="d-block w-100" src="assets/img/tetouan.jpg" alt="Second slide">
-      <h4 style="text-align:center;" data-city="Tétouan" class="cityImage" >Tétouan</h4>
-    </div>
-    <div class="carousel-item">
-      <img data-city="Marrakech" class="d-block w-100" src="assets/img/kech.jpg" alt="Third slide">
-      <h4 style="text-align:center;" data-city="Marrakech" class="cityImage" >Marrakech</h4>
+          <div class="row">
+            <div
+              class="col-xl-3 col-md-6 d-flex align-items-stretch"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="icon-box">
+                <div class="card-img">
+                  <img data-city="Casablanca" src="assets/img/casa.jpg" alt="" class="img-fluid cityImage"  style="height:250px;width:230px"/>
+                </div>
+                <h4 data-city="Casablanca" class="cityImage mt-3 text-center" >  Casablanca</h4>
+              </div>
+            </div>
 
-    </div>
-    <div class="carousel-item">
-      <img data-city="Tangier" class="d-block w-100" src="assets/img/tanger.jpg" alt="fourth slide">
-      <h4 style="text-align:center;" data-city="Tangier" class="cityImage" >Tangier</h4>
+            <div
+              class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="icon-box">
+                <div class="card-img">
+                  <img data-city="Tétouan" src="assets/img/tetouan.jpg" alt="" class="img-fluid  cityImage" style="height:250px;width:230px" />
+                </div>
+                <h4 data-city="Casablanca" class="cityImage mt-3 text-center" >Tétouan</h4>
+              </div>
+            </div>
+            <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="icon-box">
+              <div class="card-img">
+                <img data-city="Marrakech" src="assets/img/kech.jpg" alt="" class="img-fluid cityImage" style="height:250px;width:230px" />
+              </div>
+              <h4 data-city="Casablanca" class="cityImage mt-3 text-center" >Marrakech</h4>
+            </div>
+          </div>
 
-    </div>
-  </div>
-</div>
-
-<!-- slidecity -->
+          <div
+            class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="icon-box">
+              <div class="card-img">
+                <img data-city="Tangier" src="assets/img/tanger.jpg" alt="" class="img-fluid cityImage" style="height:250px;width:230px" />
+              </div>
+              <h4 data-city="Casablanca" class="cityImage mt-3 text-center" >Tanger</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+  <!-- End Services Section -->
   <!-- End Services Section -->
 
       <!-- ======= Why Us Section ======= -->

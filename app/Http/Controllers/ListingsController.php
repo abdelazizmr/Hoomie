@@ -15,11 +15,7 @@ class ListingsController extends Controller
     public function index(){
         // $posts = Post::all();
 
-        $posts = Post::where('status_id',
-            1
-        )->latest()->paginate(10);
-
-
+        $posts = Post::paginate(10);
         $citys = City::all();
         $authUser = Auth::user();
 
