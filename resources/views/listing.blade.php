@@ -127,14 +127,19 @@
                 <div class="d-flex justify-content-between gap-5">
                   <h4>
                     @if ($post->user)
-                        {{ $post->user->name }}
+                        {{ ucfirst($post->user->name) }}
                     @endif
                   </h4>
 
                   <div>
                     @if (Auth::user())
+                      @if(auth()->user()->id == $post->user->id)
+                        <h4 class="text-success">
+                            You
+                        </h4>
+                      @else
                         @php
-                            $matchingPercentage = $post->matchingPercentage; // Assuming $post->matchingPercentage is the value you want to check
+                            $matchingPercentage = $post->matchingPercentage;
                             $class = ($matchingPercentage >= 70 ) ? 'text-success' : (($matchingPercentage > 50) ? 'text-warning' : 'text-danger');
                         @endphp
 
@@ -142,6 +147,7 @@
                             {{ $matchingPercentage }} %
                         </h4>
                     @endif
+                  @endif
                 </div>
 
                   
@@ -163,7 +169,9 @@
                   </p>
 
 
-                <a href="{{ route('chatify.messages') }}" class="buttonMessage mt-3">Message</a>
+                <a href="/chatify/{{ $post->user->id }}" class="buttonMessage mt-3">
+                  Message
+                </a>
               </div>
             </div>
           </div>
